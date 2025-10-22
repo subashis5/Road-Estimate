@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Road Intervention Estimator</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="logo" onclick="scrollToSection('home')" style="cursor: pointer;">🛣️ Smart Road Estimator</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#estimator">Estimator</a></li>
+          <li><a href="#history">History</a></li>
+            <li><a href="#comparison">Compare</a></li> 
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+  <svg class="theme-icon moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </svg>
+  <svg class="theme-icon sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+  </svg>
+</button>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+      <div class="hero-content">
+        <h1 class="hero-title">Smart Road Intervention Estimator</h1>
+        <p class="hero-tagline">
+          The New Standard in Road Intervention Analysis - Use Data to Get a 360-Degree View of Your Infrastructure Projects
+        </p>
+        <div class="hero-buttons">
+          <button
+            class="btn btn-primary"
+            onclick="scrollToSection('estimator')">
+            Start Estimating
+          </button>
+          <button class="btn btn-secondary" onclick="scrollToSection('about')">
+            Learn More
+          </button>
+        </div>
+        <div class="hero-illustration">
+          <svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+            <!-- Road -->
+            <path
+              d="M 50 300 Q 400 280 750 300"
+              stroke="#666"
+              stroke-width="80"
+              fill="none" />
+            <path
+              d="M 50 300 Q 400 280 750 300"
+              stroke="#FFF"
+              stroke-width="4"
+              fill="none"
+              stroke-dasharray="20,20" />
+            <!-- Trees -->
+            <circle cx="100" cy="200" r="40" fill="#A8E6CF" />
+            <rect x="90" y="240" width="20" height="60" fill="#8B4513" />
+            <circle cx="700" cy="180" r="50" fill="#A8E6CF" />
+            <rect x="688" y="230" width="24" height="70" fill="#8B4513" />
+            <circle cx="300" cy="150" r="35" fill="#A8E6CF" />
+            <rect x="291" y="185" width="18" height="50" fill="#8B4513" />
+            <circle cx="500" cy="160" r="38" fill="#A8E6CF" />
+            <rect x="490" y="198" width="20" height="55" fill="#8B4513" />
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+      <div class="features-container">
+        <div class="feature-card">
+          <div class="feature-icon">🏗️</div>
+          <h3>Accurate Estimates</h3>
+          <p>
+            Professional cost calculations for various road safety interventions with real-time data analysis
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌱</div>
+          <h3>Eco-Friendly Focus</h3>
+          <p>
+            Sustainable material recommendations and environmental impact assessments
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📊</div>
+          <h3>Visual Reports</h3>
+          <p>Interactive charts and downloadable PDF reports for comprehensive project planning</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Estimator Section -->
+    <section id="estimator" class="estimator-section">
+      <div class="estimator-container">
+        <h2 class="section-title">Cost Estimator</h2>
+        <div class="estimator-card">
+          <form id="estimatorForm">
+            <div class="form-group">
+              <label>🏗️ Intervention Type</label>
+              <select id="interventionType" required>
+                <option value="">Select intervention type</option>
+                <option value="Speed Breaker">Speed Breaker</option>
+                <option value="Guard Rail">Guard Rail</option>
+                <option value="Road Signage">Road Signage</option>
+                <option value="Street Light">Street Light</option>
+                <option value="Zebra Crossing">Zebra Crossing</option>
+                <option value="Traffic Signal">Traffic Signal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>🧱 Material Type</label>
+              <select id="materialType" required>
+                <option value="">Select material type</option>
+                <option value="Concrete">Concrete</option>
+                <option value="Asphalt">Asphalt</option>
+                <option value="Metal">Metal</option>
+                <option value="Plastic">Plastic</option>
+                <option value="Composite">Composite</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>🔢 Quantity</label>
+              <input
+                type="number"
+                id="quantity"
+                min="1"
+                placeholder="Enter quantity"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label>📍 Location Type</label>
+              <select id="locationType" required>
+                <option value="">Select location type</option>
+                <option value="Urban">Urban</option>
+                <option value="Rural">Rural</option>
+                <option value="Highway">Highway</option>
+                <option value="Residential">Residential</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>💰 Labor Cost per Unit (₹)</label>
+              <input
+                type="number"
+                id="laborCost"
+                min="0"
+                step="0.01"
+                placeholder="Enter labor cost"
+                required />
+            </div>
+
+            <div class="form-group">
+              <label>💸 Material Cost per Unit (₹)</label>
+              <input
+                type="number"
+                id="materialCost"
+                min="0"
+                step="0.01"
+                placeholder="Enter material cost"
+                required />
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn btn-primary">
+                Estimate Now
+              </button>
+              <button type="button" class="btn btn-reset" onclick="resetForm()">
+                Reset
+              </button>
+            </div>
+          </form>
+
+          <!-- Results Section -->
+          <div id="resultsSection" class="results-section" style="display: none">
+            <h3>Estimation Results</h3>
+            
+            <!-- Main Grid: Costs on left, Info on right -->
+            <div class="results-main-grid">
+                <!-- Left Column - Cost Summary -->
+                <div class="cost-summary-column">
+                    <!-- Material Cost Card -->
+                    <div class="cost-card">
+                        <h4>🧱 Material Costs</h4>
+                        <div class="cost-amount" id="totalMaterialCost">₹0</div>
+                        <div class="cost-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Cost per Unit</div>
+                                <div class="breakdown-value" id="materialPerUnit">₹0</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Quantity</div>
+                                <div class="breakdown-value" id="displayQuantity">0 units</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Labor Cost Card -->
+                    <div class="cost-card">
+                        <h4>👷 Labor Costs</h4>
+                        <div class="cost-amount" id="totalLaborCost">₹0</div>
+                        <div class="cost-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Cost per Unit</div>
+                                <div class="breakdown-value" id="laborPerUnit">₹0</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Quantity</div>
+                                <div class="breakdown-value" id="displayQuantity2">0 units</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Column - Project Info -->
+                <div class="info-column">
+                    <!-- Grand Total Card -->
+                    <div class="cost-card grand-total">
+                        <h4>💰 Grand Total</h4>
+                        <div class="cost-amount" id="grandTotal">₹0</div>
+                        <div class="cost-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Intervention</div>
+                                <div class="breakdown-value" id="displayIntervention">-</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Location</div>
+                                <div class="breakdown-value" id="displayLocation">-</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Project Details Card -->
+                    <div class="cost-card">
+                        <h4>📋 Project Details</h4>
+                        <div class="cost-breakdown">
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Material Type</div>
+                                <div class="breakdown-value" id="displayMaterial">-</div>
+                            </div>
+                            <div class="breakdown-item">
+                                <div class="breakdown-label">Total Duration</div>
+                                <div class="breakdown-value" id="displayDuration">0 days</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Full Width Sections -->
+            <div class="recommendation-box">
+                <h4>💡 AI Recommendation</h4>
+                <p id="recommendation"></p>
+            </div>
+            
+            <!-- Cost Saving Tips will be inserted here by JavaScript -->
+            
+            <div class="chart-container">
+                <canvas id="costChart" width="400" height="200"></canvas>
+            </div>
+            
+            <!-- Timeline and Environment Side by Side -->
+            <div class="data-sections-grid">
+                <!-- Timeline Section -->
+     <div class="timeline-section" style="display: none">
+    <h4>⏱️ Project Timeline</h4>
+    
+    <!-- Small Boxes Timeline -->
+    <div class="timeline-boxes">
+        <div class="phase-box">
+            <div class="phase-icon">📋</div>
+            <div class="phase-title">Planning & Permits</div>
+            <div class="phase-duration" id="planningDuration">2 days</div>
+        </div>
+        
+        <div class="phase-box">
+            <div class="phase-icon">📦</div>
+            <div class="phase-title">Material Procurement</div>
+            <div class="phase-duration" id="procurementDuration">3 days</div>
+        </div>
+        
+        <div class="phase-box">
+            <div class="phase-icon">👷</div>
+            <div class="phase-title">Site Preparation</div>
+            <div class="phase-duration" id="prepDuration">2 days</div>
+        </div>
+        
+        <div class="phase-box">
+            <div class="phase-icon">🏗️</div>
+            <div class="phase-title">Construction</div>
+            <div class="phase-duration" id="constructionDuration">2 days</div>
+        </div>
+        
+        <div class="phase-box">
+            <div class="phase-icon">✅</div>
+            <div class="phase-title">Quality Checks</div>
+            <div class="phase-duration" id="qualityDuration">1 day</div>
+        </div>
+        
+        <div class="phase-box">
+            <div class="phase-icon">📝</div>
+            <div class="phase-title">Final Approval</div>
+            <div class="phase-duration" id="approvalDuration">1 day</div>
+        </div>
+    </div>
+    
+    <!-- Timeline Summary -->
+    <div class="timeline-summary">
+        <div class="timeline-total">
+            <span class="total-label">Total Project Duration:</span>
+            <span class="total-value" id="totalDuration">11 days</span>
+        </div>
+        <div class="timeline-progress">
+            <span class="progress-label">Daily Progress:</span>
+            <span class="progress-value">~9% per day</span>
+        </div>
+    </div>
+</div>
+                
+                <!-- Environment Section -->
+                <div class="environment-section">
+                    <h4>🌍 Environmental Impact</h4>
+                    <div class="environment-cards">
+                        <div class="environment-card">
+                            <div class="environment-icon">🏭</div>
+                            <div class="environment-info">
+                                <span class="environment-label">Carbon Footprint</span>
+                                <span class="environment-value" id="carbonFootprint">0 kg CO₂</span>
+                            </div>
+                        </div>
+                        <div class="environment-card">
+                            <div class="environment-icon">💧</div>
+                            <div class="environment-info">
+                                <span class="environment-label">Water Usage</span>
+                                <span class="environment-value" id="waterUsage">0 L</span>
+                            </div>
+                        </div>
+                        <div class="environment-card">
+                            <div class="environment-icon">🌳</div>
+                            <div class="environment-info">
+                                <span class="environment-label">Eco-Score</span>
+                                <span class="environment-value" id="ecoScore">0/100</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Results Actions -->
+            <div class="results-actions">
+                <button class="btn btn-download" onclick="downloadPDF()">
+                    📥 Download Report as PDF
+                </button>
+                <button class="btn btn-save" onclick="saveEstimate()">
+                    <span class="btn-icon">💾</span>
+                    Save to History
+                </button>
+                <button class="btn" id="saveCompareBtn" onclick="saveForComparison()">
+                    <span class="btn-icon">💾</span>
+                    Save for Comparison
+                </button>
+                <button class="btn" id="compareBtn" onclick="showComparison()" style="display: none;">
+                    <span class="btn-icon">🔄</span>
+                    Compare with Saved
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Comparison Section -->
+<section id="comparison" class="comparison-section">
+    <div class="comparison-container">
+        <h2 class="section-title">Compare Estimates</h2>
+        
+        <!-- Current Estimate Box -->
+        <div class="comparison-box">
+            <h4>🆕 Current Estimate</h4>
+            <div class="comparison-details">
+                <div class="comparison-item">
+                    <span class="comparison-label">Intervention:</span>
+                    <span class="comparison-value" id="currentIntervention">-</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Total Cost:</span>
+                    <span class="comparison-value" id="currentCost">₹0</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Duration:</span>
+                    <span class="comparison-value" id="currentDuration">0 days</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Eco-Score:</span>
+                    <span class="comparison-value" id="currentEcoScore">0/100</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Saved Estimate Box -->
+        <div class="comparison-box highlight">
+            <h4>💾 Saved Estimate</h4>
+            <div class="comparison-details">
+                <div class="comparison-item">
+                    <span class="comparison-label">Intervention:</span>
+                    <span class="comparison-value" id="savedIntervention">-</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Total Cost:</span>
+                    <span class="comparison-value" id="savedCost">₹0</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Duration:</span>
+                    <span class="comparison-value" id="savedDuration">0 days</span>
+                </div>
+                <div class="comparison-item">
+                    <span class="comparison-label">Eco-Score:</span>
+                    <span class="comparison-value" id="savedEcoScore">0/100</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Comparison Summary -->
+    <div class="comparison-summary">
+        <h4>📊 Comparison Summary</h4>
+        <div class="summary-grid">
+            <div class="summary-item cost-saving">
+                <span class="summary-label">Cost Difference:</span>
+                <span class="summary-value" id="costDifference">₹0</span>
+            </div>
+            <div class="summary-item time-saving">
+                <span class="summary-label">Time Difference:</span>
+                <span class="summary-value" id="timeDifference">0 days</span>
+            </div>
+            <div class="summary-item eco-difference">
+                <span class="summary-label">Eco-Score Difference:</span>
+                <span class="summary-value" id="ecoDifference">0 points</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="comparison-actions">
+        <button class="btn btn-primary" onclick="closeComparison()">
+            Close Comparison
+        </button>
+        <button class="btn" onclick="saveComparison()">
+            📥 Save Comparison Report
+        </button>
+    </div>
+</section>
+
+    <!-- History Section -->
+    <section id="history" class="history-section">
+      <div class="history-container">
+        <h2 class="section-title">Project History</h2>
+        <div class="history-header">
+          <div class="history-stats">
+            <div class="stat-card">
+              <div class="stat-icon">📊</div>
+              <div class="stat-info">
+                <span class="stat-number" id="totalProjects">0</span>
+                <span class="stat-label">Total Projects</span>
+              </div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon">💰</div>
+              <div class="stat-info">
+                <span class="stat-number" id="totalInvestment">₹0</span>
+                <span class="stat-label">Total Investment</span>
+              </div>
+            </div>
+          </div>
+          <div class="history-actions">
+            <button class="btn btn-clear" onclick="clearAllHistory()">
+              <span class="btn-icon">🗑️</span>
+              Clear All
+            </button>
+            <button class="btn btn-export" onclick="exportHistory()">
+              <span class="btn-icon">📤</span>
+              Export CSV
+            </button>
+          </div>
+        </div>
+
+        <div class="history-content">
+          <div id="emptyHistory" class="empty-state">
+            <div class="empty-icon">📝</div>
+            <h3>No Projects Yet</h3>
+            <p>
+              Your saved estimates will appear here. Start by creating your
+              first estimate!
+            </p>
+            <button
+              class="btn btn-primary"
+              onclick="scrollToSection('estimator')">
+              Create First Estimate
+            </button>
+          </div>
+
+          <div id="historyList" class="history-list" style="display: none">
+            <!-- History items will be dynamically inserted here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="about-container">
+    <div class="section-header">
+      <h2 class="section-title">About Smart Road Estimator</h2>
+ 
+  <p class="section-subtitle">
+    Revolutionizing road safety infrastructure planning with data-driven cost estimation
+  </p>
+</div>
+
+<div class="about-content">
+  <div class="about-description">
+    <p class="lead-text">
+      This innovative web application helps <strong>engineers, urban planners, and government agencies</strong> 
+      estimate road safety intervention costs <em>quickly and accurately</em>. Built for the 
+      <span class="highlight">National Road Safety Hackathon 2025</span>, it combines 
+      <strong>sustainability with practicality</strong> to create safer road infrastructure.
+    </p>
+  </div>
+
+  <!-- Mission & Vision -->
+  <div class="mission-vision-grid">
+    <div class="mission-card">
+      <div class="card-icon">🎯</div>
+      <div class="card-content">
+        <h3 class="card-title">Our Mission</h3>
+        <p class="card-text">To provide <strong>accurate, data-driven cost estimations</strong> for road safety interventions, making infrastructure planning more <em>efficient and accessible</em> for everyone.</p>
+      </div>
+    </div>
+    <div class="vision-card">
+      <div class="card-icon">🔭</div>
+      <div class="card-content">
+        <h3 class="card-title">Our Vision</h3>
+        <p class="card-text">To create <strong>safer roads worldwide</strong> through intelligent planning tools that consider both <em>cost efficiency and environmental sustainability</em>.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+      <!-- Project Highlights -->
+      <div class="project-highlights">
+        <h3>Key Features</h3>
+        <div class="highlights-grid">
+          <div class="highlight-card">
+            <div class="highlight-icon">💰</div>
+            <h4>Accurate Cost Estimation</h4>
+            <p>Professional calculations based on real-world data for various road safety interventions</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">🌱</div>
+            <h4>Sustainability Focus</h4>
+            <p>Environmental impact analysis and eco-friendly material recommendations</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">📊</div>
+            <h4>Data Visualization</h4>
+            <p>Interactive charts and comprehensive reports for better decision-making</p>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon">📱</div>
+            <h4>Universal Access</h4>
+            <p>Works offline and on all devices, ensuring accessibility in remote areas</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Developer Section -->
+      <div class="developer-section">
+        <h3>About the Developer</h3>
+        <div class="developer-card">
+          <div class="developer-avatar">
+            <div class="avatar-icon">👨‍💻</div>
+          </div>
+          <div class="developer-info">
+            <h4>Subashis Palai</h4>
+            <p class="developer-title">Full-Stack Developer & BCA Student</p>
+<div class="developer-description">
+  <div class="description-section">
+    <h4 class="description-heading">🎯 Professional Focus</h4>
+    <p class="highlight-text">
+      A passionate tech enthusiast currently pursuing <strong>Bachelor of Computer Applications</strong> with a focus on creating <em>digital solutions that bridge technology and real-world problems</em>.
+    </p>
+    <ul class="skills-list">
+      <li>💻 <strong>Web Development</strong> - Full-stack development with modern technologies</li>
+      <li>🤖 <strong>AI Integration</strong> - Implementing artificial intelligence in practical applications</li>
+      <li>🎨 <strong>User Experience Design</strong> - Building intuitive and user-friendly interfaces</li>
+      <li>🌍 <strong>Social Impact</strong> - Creating applications that make a positive impact on society</li>
+    </ul>
+  </div>
+
+  <div class="description-section">
+    <h4 class="description-heading">🚀 Experience & Expertise</h4>
+    <p class="highlight-text">
+      With extensive experience in <strong>multiple hackathons</strong> and a comprehensive <strong>O-Level internship</strong>, I've developed robust skills across the technology spectrum.
+    </p>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <span class="expertise-icon">🛠️</span>
+        <div class="expertise-content">
+          <strong>Software Development Lifecycle</strong>
+          <span class="expertise-desc">End-to-end project management</span>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <span class="expertise-icon">📊</span>
+        <div class="expertise-content">
+          <strong>Project Management</strong>
+          <span class="expertise-desc">Agile methodologies & best practices</span>
+        </div>
+      </div>
+      <div class="expertise-item">
+        <span class="expertise-icon">🏆</span>
+        <div class="expertise-content">
+          <strong>Industry Standards</strong>
+          <span class="expertise-desc">Following modern development practices</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="description-section">
+    <h4 class="description-heading">🎯 Mission & Vision</h4>
+    <blockquote class="mission-quote">
+      "My goal is to leverage cutting-edge technology to create <strong>sustainable solutions</strong> for <em>public safety</em> and <em>infrastructure development</em>, making a tangible difference in communities through innovative digital transformation."
+    </blockquote>
+  </div>
+</div>
+            <!-- <div class="developer-contact">
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <span>subashispalai@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <span>Bhubaneswar, Odisha, India</span>
+              </div>
+            </div> -->
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/subashis-palai-27798429b/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/subashis5" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span>
+              </a>
+              <a href="mailto:subashispalai@gmail.com" class="social-link" aria-label="Email">
+                <span>Email</span>
+              </a>
+              <a href="https://x.com/_subashis?t=RfU_lpwOuaNRpJFMO0Zfgg&s=09" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                <span>Twitter</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="tech-stack">
+        <h3>Technology Stack</h3>
+        <div class="tech-tags">
+          <span class="tech-tag">HTML5 & CSS3</span>
+          <span class="tech-tag">JavaScript (ES6+)</span>
+          <span class="tech-tag">Chart.js</span>
+          <span class="tech-tag">jsPDF</span>
+          <span class="tech-tag">Responsive Design</span>
+          <span class="tech-tag">Progressive Web App</span>
+          <span class="tech-tag">Local Storage API</span>
+          <span class="tech-tag">Git & GitHub</span>
+        </div>
+      </div>
+
+      <!-- Hackathon Info -->
+      <div class="hackathon-info">
+        <div class="hackathon-badge">🏆 Hackathon Project</div>
+        <h3>National Road Safety Hackathon 2025</h3>
+        <p>
+          This project was developed as part of the National Road Safety Hackathon 2025, 
+          with the goal of creating innovative solutions to improve road safety infrastructure 
+          across the country. The Smart Road Estimator addresses the critical need for 
+          accurate cost estimation in road safety interventions.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section">
+  <div class="contact-container">
+    <div class="section-header">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">
+        Have questions or want to collaborate? Feel free to reach out!
+      </p>
+    </div>
+    
+    <div class="contact-content">
+<div class="contact-info">
+  <div class="contact-card">
+    <div class="contact-card-inner">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon">📧</div>
+      </div>
+      <div class="contact-details">
+        <h4 class="contact-title">Email</h4>
+        <p class="contact-value">subashispalai@gmail.com</p>
+        <a href="mailto:subashispalai@gmail.com" class="contact-link">
+          <span>Send Email</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="contact-card">
+    <div class="contact-card-inner">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon">📍</div>
+      </div>
+      <div class="contact-details">
+        <h4 class="contact-title">Location</h4>
+        <p class="contact-value">Bhubaneswar, Odisha</p>
+        <div class="location-badge">
+          <span class="badge-text">India</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="contact-card">
+    <div class="contact-card-inner">
+      <div class="contact-icon-wrapper">
+        <div class="contact-icon">💼</div>
+      </div>
+      <div class="contact-details">
+        <h4 class="contact-title">Portfolio</h4>
+        <p class="contact-value">View my work</p>
+        <a href="https://subashisportfolio8.netlify.app/" target="_blank" class="portfolio-link">
+          <span>Visit Portfolio</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+      
+      <div class="contact-cta">
+        <h3>Let's Work Together</h3>
+        <p>
+          I'm always interested in new opportunities, collaborations, 
+          and projects that make a positive impact on society.
+        </p>
+        <div class="cta-buttons">
+          <a href="mailto:subashispalai@gmail.com" class="btn btn-primary">Contact Me</a>
+          <a href="#about" class="btn btn-secondary">Learn More About Me</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- Professional Footer -->
+    <footer class="footer-main">
+      <div class="footer-container">
+        <!-- Brand Column -->
+        <div class="footer-brand">
+          <h3>🛣️ Smart Road Estimator</h3>
+          <p>The new standard in road intervention analysis. Use data to get a 360-degree view of your infrastructure projects and make informed decisions.</p>
+          <div class="footer-cta">
+            <h4>Get started with Smart Road Estimator, today.</h4>
+            <button class="btn" onclick="scrollToSection('estimator')">
+              Start Your Estimate
+            </button>
+          </div>
+        </div>
+
+        <!-- Solutions Column -->
+        <div class="footer-column">
+          <h4>Solutions</h4>
+          <ul class="footer-links">
+            <li><a href="#estimator">Cost Estimator</a></li>
+            <li><a href="#history">Project History</a></li>
+            <li><a href="#comparison">Compare Estimates</a></li>
+            <li><a href="#">Sustainability Reports</a></li>
+            <li><a href="#">Budget Planning</a></li>
+          </ul>
+        </div>
+
+        <!-- Company Column -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Our Approach</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Team</a></li>
+          </ul>
+        </div>
+
+        <!-- Support Column -->
+        <div class="footer-column">
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#contact">Get Started</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Smart Road Estimator. All rights reserved.</p>
+        
+            <div class="social-links">
+              <a href="https://www.linkedin.com/in/subashis-palai-27798429b/" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+              </a>
+              <a href="https://github.com/subashis5" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer">
+                <span>GitHub</span>
+              </a>
+              <a href="mailto:subashispalai@gmail.com" class="social-link" aria-label="Email">
+                <span>Email</span>
+              </a>
+              <a href="https://x.com/_subashis?t=RfU_lpwOuaNRpJFMO0Zfgg&s=09" class="social-link" aria-label="Twitter" target="_blank" rel="noopener noreferrer">
+                <span>Twitter</span>
+              </a>
+            </div>
+        
+        <div class="footer-credits">
+          <span>Built with ❤️ for safer roads</span>
+          <span>•</span>
+          <span>National Road Safety Hackathon 2025</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+  // Register Service Worker for offline functionality
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+        })
+        .catch(function(error) {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+</script>
+  </body>
+</html>
